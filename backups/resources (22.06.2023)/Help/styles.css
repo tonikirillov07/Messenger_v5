@@ -1,0 +1,108 @@
+.header{
+	-fx-background-color: rgb(12,23,39);
+}
+
+.button{
+	-fx-background-color: rgb(79,82,178);
+	-fx-text-fill: white;
+	-fx-border-radius: 13;
+	-fx-background-radius: 13;
+	-fx-border-color: white;
+	-fx-border-width: 1.5;
+	-fx-font-family: 'Arial Black';
+	-fx-cursor: hand;
+}
+
+.textField{
+	-fx-background-color: rgb(12,23,39);
+	-fx-border-radius: 13;
+	-fx-text-fill: white;
+	-fx-border-radius: 13;
+	-fx-border-color: white;
+	-fx-border-width: 1.5;
+	-fx-font-family: 'Arial Black';
+}
+
+.pageContent{
+	-fx-background-color: #08308825;
+	-fx-background-radius: 13;
+	-fx-border-radius: 13;
+	-fx-border-color: white;
+}
+
+.label{
+	-fx-font-family: 'Arial Black';
+}
+
+.hyperLink{
+	-fx-font-family: 'Arial Black';
+	-fx-underline: true;
+}
+
+.tab-pane .tab
+{
+    -fx-background-color: rgb(12,23,39);
+    -fx-font-family: 'Arial Black';
+
+}
+
+.tab .tab-label {
+	-fx-text-fill: white;
+}
+
+.tab:selected .tab-label {
+    -fx-text-fill: rgb(79,82,178);
+}
+
+.scroll-pane {
+    -fx-background-color: rgb(12,23,39);
+}
+
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.scroll-bar:horizontal .track{
+    -fx-background-color: black;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.imageViewButton{
+	-fx-cursor: hand;
+}
+
+
+.imageViewButton: hover{
+	-fx-scale-x: 1.5;
+	-fx-scale-y: 1.5;
+}
+
+.searchVBox{
+	-fx-background-color: #191919;
+	-fx-background-radius: 13;
+	-fx-border-radius: 13;
+	-fx-border-color: white;
+	-fx-border-width: 1.5;
+}
+
+.searchTile: hover{
+	-fx-border-color: rgb(115,140,210);
+}
+

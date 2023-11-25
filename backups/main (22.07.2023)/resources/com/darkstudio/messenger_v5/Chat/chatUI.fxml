@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="825.0" prefWidth="829.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darkstudio.messenger_v5.ChatController">
+   <children>
+      <HBox fx:id="controlHbox" prefHeight="41.0" prefWidth="1200.0" styleClass="controlsBar">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="175.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../MainWindow/images/icon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin></ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="5.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="minimizeWindowButton" fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@../MainWindow/images/minimize.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="closeWindowButton" fitHeight="30.0" fitWidth="31.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@../MainWindow/images/close.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox alignment="BOTTOM_CENTER" opacity="0.89" prefHeight="641.0" prefWidth="652.0" styleClass="contentVBox">
+               <VBox.margin>
+                  <Insets left="55.0" right="55.0" />
+               </VBox.margin>
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <HBox alignment="CENTER_LEFT" prefHeight="41.0" prefWidth="715.0" style="-fx-background-color: rgb(31,31,31); -fx-background-radius: 13;">
+                           <children>
+                              <Label fx:id="usersListLabel" prefHeight="17.0" prefWidth="134.0" text="User1, User2, User3" textFill="WHITE">
+                                 <HBox.margin>
+                                    <Insets left="10.0" />
+                                 </HBox.margin>
+                              </Label>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Label fx:id="addressLabel" text="Адрес: 0.0.0.0:8080" textFill="WHITE" />
+                                    <ImageView fitHeight="32.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/chat.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets right="5.0" />
+                                       </HBox.margin>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </HBox>
+                        <ScrollPane fx:id="messagesScrollPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                           <content>
+                              <VBox fx:id="messagesVBox" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #191919;">
+                                 <padding>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </padding></VBox>
+                           </content>
+                        </ScrollPane>
+                     </children>
+                  </VBox>
+                  <HBox alignment="CENTER" prefHeight="82.0" prefWidth="715.0" spacing="10.0">
+                     <children>
+                        <ImageView fx:id="applyChatButton" fitHeight="51.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons" visible="false">
+                           <image>
+                              <Image url="@../MainWindow/images/apply.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets left="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField fx:id="messageTextField" alignment="CENTER" prefHeight="43.0" prefWidth="540.0" promptText="Введите сообщение" styleClass="textField" />
+                        <ImageView fx:id="sendImageButtonImageView" fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                           <image>
+                              <Image url="@images/pinImage.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="sendButtonImageView" fitHeight="45.0" fitWidth="48.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                           <image>
+                              <Image url="@images/send.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="cancelChatButton" fitHeight="46.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons" visible="false">
+                           <image>
+                              <Image url="@../MainWindow/images/cancel.png" />
+                           </image>
+                           <HBox.margin>
+                              <Insets right="15.0" />
+                           </HBox.margin>
+                        </ImageView>
+                        <TextField fx:id="hidenTextField" prefHeight="21.0" prefWidth="1.0" visible="false" />
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+         </children>
+      </VBox>
+   </children>
+</VBox>

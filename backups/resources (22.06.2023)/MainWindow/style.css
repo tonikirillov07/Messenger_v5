@@ -1,0 +1,249 @@
+.controlsBar{
+	-fx-background-color: rgb(12,23,39);
+}
+
+.controlsBarButtons: hover{
+	-fx-scale-x: 1.5;
+	-fx-scale-y: 1.5;
+}
+
+.label{
+	-fx-font-family: 'Arial Black';
+}
+
+.buttonIV: hover{
+	-fx-translate-y: -5;
+	-fx-scale-x: 1.3;
+	-fx-scale-y: 1.3;
+}
+
+.button{
+    -fx-cursor: hand;
+}
+
+.hideRecentChatsButton: hover{
+	-fx-scale-x: 1.5;
+	-fx-scale-y: 1.5;
+}
+
+.buttons{
+	-fx-background-color: rgb(79,82,178);
+	-fx-text-fill: white;
+	-fx-font-family: 'Arial Black';
+	-fx-background-radius: 13;
+	-fx-border-radius: 13;
+	-fx-border-width: 2;
+}
+
+.buttons: hover{
+	-fx-border-color: blue;
+}
+
+.tiles: hover{
+	-fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+}
+
+.userAvatarTile{
+	-fx-border-radius: 13;
+	-fx-border-width: 1.5;
+	-fx-background-radius: 13;
+	-fx-background-color: #08308825;
+	-fx-border-color: white;
+
+}
+
+.userAvatarTile: hover{
+	-fx-border-color: rgb(115,140,210);
+}
+
+.textField{
+	-fx-background-color: white;
+	-fx-background-radius: 13px;
+	-fx-font-family: 'Arial Black';
+	-fx-border-radius: 13;
+	-fx-border-width: 2;
+}
+
+.textField: hover{
+	-fx-border-color: rgb(115,140,210);
+}
+
+.labelButtons{
+    -fx-cursor: hand;
+}
+
+.labelButtons: hover{
+	-fx-opacity: 0.87;
+	-fx-underline: true;
+}
+
+.settingsTiles: hover{
+	-fx-scale-x: 1.1;
+	-fx-scale-y: 1.1;
+}
+
+.settingsContentPane{
+	-fx-background-color: rgb(12,23,39);
+	-fx-background-radius: 13;
+	-fx-border-width: 1.5;
+	-fx-border-color: white;
+	-fx-border-radius: 13;
+}
+
+.color-picker > .color-picker-label{
+	-fx-text-fill: white;
+}
+
+.color-picker .color-box {
+	-fx-background-color: red;
+}
+
+.settingsBlocks{
+	-fx-background-color: rgb(12,23,39);
+	-fx-border-radius: 13;
+	-fx-border-width: 1.5;
+	-fx-border-color: white;
+	-fx-background-color: rgb(12,23,39);
+}
+
+.textFieldForCity{
+	-fx-border-color: white;
+	-fx-border-width: 0 0 1 0;
+	-fx-background-insets: 0, 0 0 1 0;
+}
+
+.radio-button: hover{
+    -fx-opacity: 0.89;
+    -fx-underline: true;
+}
+
+.scroll-pane {
+    -fx-background-color: rgb(12,23,39);
+}
+
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.scroll-bar:horizontal .track{
+    -fx-background-color: black;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.weatherWidget{
+	-fx-background-color: rgb(12,23,39);
+	-fx-opacity: 0.96;
+}
+
+.radio-button:hover{
+	-fx-underline: true;
+}
+
+.radio-button .radio {
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+    -fx-background-color: rgb(79,82,178);
+
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 4px;
+}
+.radio-button .radio:selected {
+    -fx-background-color: black;
+    -fx-background-image: null;
+    
+}
+.radio-button -radio:armed {
+    -fx-background-color: black;
+    -fx-background-image: null;
+}
+.radio-button -radio:determinate {
+    -fx-background-color: black;
+    -fx-background-image: null;
+}
+.radio-button -radio:indeterminate {
+    -fx-background-color: black;
+    -fx-background-image: null;
+}
+.radio-button .dot {
+    -fx-background-radius: 15px;
+}
+
+.radio-button{
+	-fx-font-family: 'Arial Black';
+	-fx-text-fill: white;
+}
+
+.slider .track{
+	-fx-background-color: linear-gradient(to bottom left, #323337,  #323337);
+	-fx-border-color: white;
+	-fx-border-radius: 3px;
+}
+
+.slider .thumb{
+	-fx-background-color: rgb(79,82,178);
+	-fx-border-color: white;
+	-fx-border-radius: 15px;
+}
+
+.check-box {
+    selected-box-color: #141414;
+    box-color: white;
+    mark-color: white;
+    -fx-text-fill: white;
+    -fx-font-family: 'Arial Black';
+    -fx-cursor: hand;
+}
+
+.check-box:selected > .box {
+    -fx-background-color: white;
+}
+
+.check-box > .box {
+    -fx-background-color: #5b5fc7;
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark {
+    -fx-background-color: #444791;
+}
+
+.check-box: hover{
+	-fx-underline: true;
+}
+
+.progress-bar .bar {
+    -fx-background-color:
+        -fx-box-border,
+        linear-gradient(to bottom, rgb(12,23,39), rgb(12,23,39)),
+        blue;
+    -fx-background-insets: 0, 1, 2;
+    -fx-padding: 0.416667em; /* 5 */
+}
+
+/* I love you, Ira, but i never will tell you about that... */
+
+

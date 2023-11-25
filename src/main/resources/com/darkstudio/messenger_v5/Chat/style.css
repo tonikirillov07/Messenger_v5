@@ -1,0 +1,71 @@
+.controlsBar{
+	-fx-background-color: rgb(12,23,39);
+}
+
+.controlsBarButtons: hover{
+	-fx-scale-x: 1.5;
+	-fx-scale-y: 1.5;
+}
+
+.buttonIV: hover{
+	-fx-translate-y: -5;
+	-fx-scale-x: 1.3;
+	-fx-scale-y: 1.3;
+}
+
+.button{
+    -fx-cursor: hand;
+}
+
+.contentVBox{
+    -fx-background-color: #191919;
+    -fx-background-radius: 13;
+    -fx-border-radius: 13;
+    -fx-border-color: white;
+    -fx-border-width: 1.5;
+}
+
+.textField{
+	-fx-background-color: white;
+	-fx-background-radius: 13;
+	-fx-font-family: 'Arial Black';
+}
+
+.label{
+	-fx-font-family: 'Arial Black';
+}
+
+.scroll-pane {
+    -fx-background-color: rgb(31,31,31);
+}
+
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.scroll-bar:horizontal .track{
+    -fx-background-color: black;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}

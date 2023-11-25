@@ -1,0 +1,389 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Hyperlink?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Tab?>
+<?import javafx.scene.control.TabPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="765.0" prefWidth="986.0" stylesheets="@styles.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darkstudio.messenger_v5.HelpController">
+   <children>
+      <HBox fx:id="headerHBox" prefHeight="37.0" prefWidth="986.0" styleClass="header">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="37.0" prefWidth="235.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                     <HBox.margin>
+                        <Insets left="10.0" />
+                     </HBox.margin>
+                     <image>
+                        <Image url="@images/helpIcon.png" />
+                     </image>
+                  </ImageView>
+                  <Label text="Справка" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="minimizeWindowButton" fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@../MainWindow/images/minimize.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="closeWindowButton" fitHeight="27.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@../MainWindow/images/close.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER_LEFT" prefHeight="91.0" prefWidth="986.0" styleClass="header">
+         <children>
+            <HBox alignment="CENTER" spacing="15.0">
+               <HBox.margin>
+                  <Insets left="15.0" />
+               </HBox.margin>
+               <children>
+                  <Label fx:id="helpTitleLabel" text="Справка APPNAME" textFill="WHITE">
+                     <font>
+                        <Font name="Arial Black" size="20.0" />
+                     </font>
+                  </Label>
+                  <ImageView fitHeight="60.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/help.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="goHomeIV" fitHeight="35.0" fitWidth="36.0" pickOnBounds="true" preserveRatio="true" styleClass="imageViewButton">
+                     <image>
+                        <Image url="@images/home.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets right="15.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <TabPane fx:id="contentTabPane" prefHeight="560.0" prefWidth="986.0" tabClosingPolicy="UNAVAILABLE" VBox.vgrow="ALWAYS">
+        <tabs>
+          <Tab text="Описание">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="560.0" prefWidth="422.0" style="-fx-background-color: #08308825; -fx-background-radius: 13; -fx-border-radius: 13; -fx-border-color: white;">
+                           <children>
+                              <Label fx:id="descriptionTextLabel" text="Чат &quot;Messenger v.5&quot; создан для общения пользователей между собой. Приложение включает в себя множество функций.&#10;Вы можете без проблем общаться с другими пользователями, используя предусмотренные в Messenger v.5 инструменты. &#10;&#10;Информация: &#10;Версия: version&#10;Сборка: build&#10;Разработчик: Dark Studio&#10;&#10;Чтобы начать знакомство с приложением, перейдите во вкладку &quot;Начало работы&quot;. " wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial Black" size="12.0" />
+                                 </font>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="141.0" fitWidth="156.0" layoutX="660.0" layoutY="189.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/users.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="583.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" rotate="-21.5">
+                           <image>
+                              <Image url="@images/about.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="757.0" layoutY="227.0" pickOnBounds="true" preserveRatio="true" rotate="21.5">
+                           <image>
+                              <Image url="@images/chat.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fx:id="openSearchButtonIV" fitHeight="39.0" fitWidth="39.0" layoutX="927.0" layoutY="552.0" pickOnBounds="true" preserveRatio="true" styleClass="imageViewButton">
+                           <image>
+                              <Image url="@images/search.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <VBox fx:id="searchVBox" layoutX="626.0" layoutY="226.0" opacity="0.87" prefHeight="365.0" prefWidth="294.0" styleClass="searchVBox" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="46.0" prefWidth="290.0">
+                                 <children>
+                                    <TextField fx:id="searchTextField" alignment="CENTER" prefHeight="25.0" prefWidth="259.0" promptText="Введите запрос..." styleClass="textField" />
+                                 </children>
+                              </HBox>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" prefHeight="288.0" prefWidth="290.0" VBox.vgrow="ALWAYS">
+                                 <content>
+                                    <VBox fx:id="searchContentVbox" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #191919;">
+                                       <padding>
+                                          <Insets left="15.0" right="15.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+          <Tab text="Начало работы">
+            <content>
+              <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="21.0" layoutY="14.0" prefHeight="558.0" prefWidth="404.0" styleClass="pageContent">
+                           <children>
+                              <Label text="Перед началом работы вам необходимо пройти регистрацию, которая включает в себя ввод данных, таких как&#10;логина, пароля и вашего города. &#10;&#10;После прохождения этого этапа, вы можете сразу начать общение путем создания чата или подключения к чату. &#10;Для подключения вам необходимо всего лишь ввести в поле адрес чата, который выглядит так: 127.0.0.1:8080, и нажать на &quot;Продолжить&quot;.&#10;Для создания вам необходимо только нажать на кнопку &quot;Создать чат&quot; на главной странице, после чего вам программа выдаст адрес чата, который&#10;вы должны сообщить другим пользователям, чтобы они смогли подключиться. Чаты, к которым вы подключались и которые вы создавали, сохранятся в левой панели.&#10;&#10;Обратите внимание: для успешного подключения компьютеры должны находиться в одной локальной сети, чего можно добиться при помощи программ, таких как,&#10;например, Radmin VPN. Без этого условия подключение к чату будет невозможным :(.&#10;" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Hyperlink fx:id="radminVPNLink" text="Скачать Radmin VPN" underline="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="20.0" />
+                                 </VBox.margin>
+                                 <font>
+                                    <Font name="Arial Black" size="12.0" />
+                                 </font>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="677.0" layoutY="147.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/connect.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="593.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" rotate="-21.5">
+                           <image>
+                              <Image url="@images/radminVPN.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="736.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true" rotate="21.5">
+                           <image>
+                              <Image url="@images/address.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+            </content>
+          </Tab>
+            <Tab text="Системные требования">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="567.0" prefWidth="409.0" styleClass="pageContent">
+                           <children>
+                              <Label text="Здесь вы можете ознакомиться с системными требованиями к Messenger v.5. Они включают в себя:&#10;&#10;1.Наличие 1GB ОЗУ&#10;2.Операционной системы Windows 10/11+&#10;3.Экрана с разрешением не менее 1300x900;&#10;4.Поддержка Desktop&#10;&#10;А также, системные требования, необходимые для JavaFX&#10;&#10;В случае, если ваша система не соответствует этим требованиям, запуск Messenger v.5 будет возможным,&#10;но стабильная работа и работа некоторых функций не гарантируется.&#10;" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Hyperlink fx:id="systemReqForJavaFX" styleClass="hyperLink" text="Системные требования для JavaFX">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="20.0" />
+                                 </VBox.margin>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="673.0" layoutY="161.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/pc.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="614.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" rotate="-215.0">
+                           <image>
+                              <Image url="@images/ram.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="764.0" layoutY="184.0" pickOnBounds="true" preserveRatio="true" rotate="21.5">
+                           <image>
+                              <Image url="@images/gpu.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Погода">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="576.0" prefWidth="380.0" styleClass="pageContent">
+                           <children>
+                              <Label text="Messenger v.5 включает в себя функцию определения погоды в разных городах мира. Располагаеется виджет погоды на&#10;панели инструментов на главной странице. При нажатии на него откроется панель с более детальной информацией о погоде и о месте.&#10;Просмотреть погоду в ином городе можно из этой панели, просто введя в текстовое поле название этого города и нажав на &quot;Продолжить&quot;.&#10;&#10;Информация о погоде включает в себя показ:&#10;&#10;1.Температуры (По °C и °F)&#10;2.Давления&#10;3.Влажности&#10;4.Видимости&#10;5.Общего описания&#10;6.Скорости ветра&#10;&#10;Информация о городе включает в себя показ:&#10;&#10;1.Названия&#10;2.Страны&#10;3.Часового пояса&#10;&#10;При возникновении проблем с определение погоды перейдите в раздел &quot;Решение проблем с погодой&quot;" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                              <Hyperlink fx:id="resolvingProblemsWithWeather" styleClass="hyperLink" text="Решение проблем с погодой">
+                                 <VBox.margin>
+                                    <Insets left="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Hyperlink>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="654.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/weather.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="595.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" rotate="-21.5">
+                           <image>
+                              <Image url="@images/temperature.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="741.0" layoutY="200.0" pickOnBounds="true" preserveRatio="true" rotate="21.5">
+                           <image>
+                              <Image url="@images/windSpeed.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Решение проблем с погодой">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="573.0" prefWidth="367.0" styleClass="pageContent">
+                           <children>
+                              <Label text="1.java.new.UnknownHostException: api.openweathermap.org.&#10;При возникновении этого исключения проверьте соединение с Интернетом&#10;&#10;2.Unexpected character (h) at position 0&#10;2.1.Проверьте соединение с Интернетом&#10;2.2.Проверьте правильность написания названия города&#10;2.3.Ошибка на стороне сервера или настроек приложения (Ожидайте выхода обновления с исправлением)&#10;&#10;3.java.io.FileNotFoundException: http://api.openweathermap.org/data/2.5/weather?q=some&amp;amp;appid=api_key&amp;amp;units=metric&#10;Проверьте правильность написания названия города&#10;&#10;4.java.io.IOException: Server returned HTTP response code: 401 for URL: http://api.openweathermap.org/data/2.5/weather?q=city&amp;amp;appid=api_key&amp;amp;units=metric&#10;Ошибка на стороне сервера или настроек приложения (Ожидайте выхода обновления с исправлением)" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="650.0" layoutY="172.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/weather.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="585.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" rotate="-21.5">
+                           <image>
+                              <Image url="@images/error.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="721.0" layoutY="201.0" pickOnBounds="true" preserveRatio="true" rotate="21.5">
+                           <image>
+                              <Image url="@images/404.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+            <Tab text="Решение проблем с подключением к чату">
+              <content>
+                <AnchorPane minHeight="0.0" minWidth="0.0" prefHeight="180.0" prefWidth="200.0">
+                     <children>
+                        <VBox layoutX="14.0" layoutY="14.0" prefHeight="571.0" prefWidth="363.0" styleClass="pageContent">
+                           <children>
+                              <Label text="1.java.lang.IllegalArgumentException: port out of range&#10;Введенный вами порт не отвечает лимиту (макс. - 65535, минимальный - 0)&#10;&#10;2.java.net.ConnectException: connection timed out: connect&#10;2.1.Проверьте правильность набора адреса сервера&#10;2.2.Проверьте соединение с Интернетом&#10;2.3.Проверьте настройки брендмауэра&#10;&#10;3.java.net.BindException: Can't assign requested address: connect&#10;Проверьте правильность порта сервера&#10;&#10;4.java.net.UnknownHostException: address&#10;Проверьте правильность ввода адреса&#10;&#10;5.Сообщения не отправляются&#10;Проблема на стороне сервера, возможно, он завершил работу по каким-то причинам&#10;&#10;6.java.net.ConnectException: Connection refused: connect&#10;6.1.Проблема на стороне сервера (возможно, он не работает или не существует)&#10;6.2.Проверьте правильность набора адреса сервера&#10;6.3.Проверьте настройки брендмауэра" wrapText="true">
+                                 <VBox.margin>
+                                    <Insets left="10.0" right="10.0" top="10.0" />
+                                 </VBox.margin>
+                              </Label>
+                           </children>
+                        </VBox>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="627.0" layoutY="193.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@images/server.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="568.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" rotate="-21.5">
+                           <image>
+                              <Image url="@images/connectionError.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                        <ImageView fitHeight="118.0" fitWidth="163.0" layoutX="704.0" layoutY="226.0" pickOnBounds="true" preserveRatio="true" rotate="90.0">
+                           <image>
+                              <Image url="@images/connectionError2.png" />
+                           </image>
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                        </ImageView>
+                     </children>
+                  </AnchorPane>
+              </content>
+            </Tab>
+        </tabs>
+      </TabPane>
+   </children>
+</VBox>

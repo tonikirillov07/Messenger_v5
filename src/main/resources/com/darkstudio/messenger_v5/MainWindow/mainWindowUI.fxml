@@ -1,0 +1,1848 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.control.Tooltip?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.shape.Circle?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="730.0" prefWidth="1035.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darkstudio.messenger_v5.MainWindowController">
+   <children>
+      <HBox fx:id="controlsBarHbox" prefHeight="48.0" prefWidth="1200.0" styleClass="controlsBar">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="iconImageView" fitHeight="32.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="titleLabel" text="Messenger v.5" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="makeScreenshotButton" fitHeight="31.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@images/makeScreenshot.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="hideWindowImageView" fitHeight="31.0" fitWidth="32.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@images/minimize.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+                  <ImageView fx:id="closeWindowImageView" fitHeight="41.0" fitWidth="39.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@images/close.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <cursor>
+                        <Cursor fx:constant="HAND" />
+                     </cursor>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+         <effect>
+            <DropShadow />
+         </effect>
+      </HBox>
+      <HBox fx:id="contentHBox" opacity="0.98" prefHeight="100.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+         <children>
+            <VBox fx:id="recentChatsListVBox" opacity="0.89" prefHeight="752.0" prefWidth="299.0" style="-fx-background-color: #46454d;">
+               <children>
+                  <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" style="-fx-background-color: #191919;">
+                     <children>
+                        <Label fx:id="recentChatsLabel" text="Недавние чаты (0)" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </HBox>
+                  <ScrollPane fitToHeight="true" fitToWidth="true" opacity="0.89" pannable="true" prefHeight="407.0" prefWidth="299.0" style="-fx-background-color: #46454d;" VBox.vgrow="ALWAYS">
+                     <content>
+                        <VBox fx:id="chatListVboxInScrollPane" alignment="CENTER" opacity="0.89" prefHeight="539.0" prefWidth="286.0" spacing="10.0" style="-fx-background-color: #46454d;">
+                           <padding>
+                              <Insets left="10.0" right="10.0" />
+                           </padding></VBox>
+                     </content>
+                  </ScrollPane>
+                  <HBox alignment="CENTER" prefHeight="87.0" prefWidth="299.0" style="-fx-background-color: #191919;">
+                     <children>
+                        <ImageView fx:id="applyToRemoveRecentChatsButtonIV" fitHeight="51.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV" visible="false">
+                           <image>
+                              <Image url="@images/apply.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="removeAllRecentChats" fitHeight="51.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                           <image>
+                              <Image url="@images/remove.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                        <ImageView fx:id="rejectToRemoveButtonRecentChatsIV" fitHeight="29.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV" visible="false">
+                           <image>
+                              <Image url="@images/cancel.png" />
+                           </image>
+                           <cursor>
+                              <Cursor fx:constant="HAND" />
+                           </cursor>
+                        </ImageView>
+                     </children>
+                  </HBox>
+               </children>
+               <effect>
+                  <DropShadow />
+               </effect>
+            </VBox>
+            <VBox alignment="BOTTOM_CENTER" opacity="0.89" prefHeight="200.0" prefWidth="100.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
+                     <children>
+                        <Pane fx:id="createYourChatPane" layoutX="34.0" layoutY="83.0" opacity="0.89" prefHeight="240.0" prefWidth="264.0" style="-fx-background-color: white; -fx-background-radius: 13;" styleClass="tiles">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="109.0" fitWidth="95.0" layoutX="87.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/createChat.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ImageView>
+                              <Label layoutX="61.0" layoutY="141.0" text="Создавайте свой чат" />
+                              <Button fx:id="createChatButton" alignment="CENTER" layoutX="60.0" layoutY="183.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="148.0" styleClass="buttons" text="Создать">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <HBox alignment="CENTER" layoutX="180.0" layoutY="310.0" prefHeight="27.0" prefWidth="241.0" rotate="-45.0">
+                           <children>
+                              <Label fx:id="splashLabel" text="SPLASH" textFill="#f0f800">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <Pane fx:id="connectToTheChatTilePane" layoutX="395.0" layoutY="83.0" opacity="0.89" prefHeight="240.0" prefWidth="264.0" style="-fx-background-color: white; -fx-background-radius: 13;" styleClass="tiles">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <ImageView fitHeight="109.0" fitWidth="95.0" layoutX="85.0" layoutY="14.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/connectToTheChat.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ImageView>
+                              <Label layoutX="34.0" layoutY="141.0" text="Подключайтесь к другим чатам" />
+                              <Button fx:id="connectToTheChatButton" alignment="CENTER" layoutX="52.0" layoutY="184.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="161.0" styleClass="buttons" text="Подключиться">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="MPPane" layoutX="34.0" layoutY="342.0" opacity="0.98" prefHeight="240.0" prefWidth="264.0" style="-fx-background-color: #191919; -fx-border-radius: 13; -fx-border-width: 1.5; -fx-border-color: black; -fx-background-radius: 13;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <Label layoutX="96.0" layoutY="14.0" prefHeight="17.0" text="Музыка" textFill="WHITE">
+                                 <font>
+                                    <Font size="16.0" />
+                                 </font>
+                              </Label>
+                              <Label fx:id="playingMusicLabel" layoutX="14.0" layoutY="50.0" prefHeight="17.0" prefWidth="241.0" text="Играет: ничего" textFill="WHITE" />
+                              <VBox layoutX="14.0" layoutY="86.0" spacing="10.0">
+                                 <children>
+                                    <HBox alignment="CENTER" spacing="10.0">
+                                       <children>
+                                          <ImageView fx:id="pauseMusicButtonMP" fitHeight="39.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/pause.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <ImageView fx:id="playMusicButtonMP" fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/play.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <ImageView fx:id="openInFolderMusicButtonMP" fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/open.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <ImageView fx:id="playRandomMusicButtonMP" fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/randomplay.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <HBox spacing="10.0">
+                                       <children>
+                                          <ImageView fx:id="addNewMusicButtonMP" fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/addFile.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <ImageView fx:id="openMyFolderWithMusicButtonMP" fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/openFolder.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                          <ImageView fx:id="closeMPButtonMP" fitHeight="46.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/closePlayer.png" />
+                                             </image>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" layoutY="236.0" prefHeight="39.0" prefWidth="264.0">
+                                 <children>
+                                    <Label fx:id="errorLabelMP" prefHeight="17.0" prefWidth="240.0" textFill="RED" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <VBox fx:id="SearchVBox" layoutX="404.0" layoutY="342.0" opacity="0.98" prefHeight="240.0" prefWidth="264.0" style="-fx-background-color: #191919; -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <HBox spacing="10.0">
+                                 <VBox.margin>
+                                    <Insets left="5.0" right="5.0" top="5.0" />
+                                 </VBox.margin>
+                                 <children>
+                                    <ImageView fitHeight="36.0" fitWidth="34.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/search2.png" />
+                                       </image>
+                                    </ImageView>
+                                    <TextField fx:id="searchField" alignment="CENTER" focusTraversable="false" prefHeight="33.0" prefWidth="260.0" promptText="Поисковый запрос" styleClass="textField" />
+                                 </children>
+                              </HBox>
+                              <ScrollPane fx:id="searchScrollPane" fitToHeight="true" fitToWidth="true" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 13; -fx-background-color: TRANSPARENT;" VBox.vgrow="ALWAYS">
+                                 <VBox.margin>
+                                    <Insets top="15.0" />
+                                 </VBox.margin>
+                                 <content>
+                                    <VBox fx:id="searchEllementVBox" alignment="CENTER" fillWidth="false" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #191919;">
+                                       <padding>
+                                          <Insets bottom="5.0" left="5.0" right="5.0" />
+                                       </padding></VBox>
+                                 </content>
+                              </ScrollPane>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER" layoutX="34.0" layoutY="24.0" prefHeight="29.0" prefWidth="695.0">
+                           <children>
+                              <Label fx:id="welcomeLabel" text="Добро пожаловать, USERNAME" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </Label>
+                           </children>
+                        </HBox>
+                        <VBox fx:id="weatherWidgetVBox" layoutX="320.0" prefHeight="596.0" prefWidth="416.0" styleClass="weatherWidget" visible="false">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="55.0" prefWidth="469.0">
+                                 <children>
+                                    <Label text="Погода" textFill="WHITE">
+                                       <font>
+                                          <Font size="20.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="194.0" prefWidth="469.0" style="-fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="5.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label fx:id="weatherDescriptionWeatherInWeatherWidget" text="Погода: rainy weather" textFill="WHITE" />
+                                                <Label fx:id="TemperatureLabelInWeatherWidget" text="Температура: 13C / 34F" textFill="WHITE" />
+                                                <Label fx:id="MaxTemperatureLabelInWeatherWidget" text="Макс. температура: 13C / 32F" textFill="WHITE" />
+                                                <Label fx:id="MinTemperatureLabelInWeatherWidget" text="Мин температура: 13C / 32F" textFill="WHITE" />
+                                                <Label fx:id="TemperatureFeelsLikeLabelInWeatherWidget" text="Ощущается как: 13C / 32F" textFill="WHITE" />
+                                                <Label fx:id="WindSpeedLabelInWeatherWidget" text="Скорость ветра: 13 м/c" textFill="WHITE" />
+                                                <Label fx:id="HumidityLabelInWeatherWidget" text="Влажность: 100%" textFill="WHITE" />
+                                                <Label fx:id="PressureLabelInWeatherWidget" text="Давление: 13 мм.рт.ст" textFill="WHITE" />
+                                                <Label fx:id="VisibilityLabelInWeatherWidget" text="Видимость: 1000м" textFill="WHITE" />
+                                             </children>
+                                             <HBox.margin>
+                                                <Insets bottom="5.0" top="5.0" />
+                                             </HBox.margin>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                    <ImageView fx:id="weatherImageInWeatherWidget" fitHeight="111.0" fitWidth="114.0" pickOnBounds="true" preserveRatio="true">
+                                       <HBox.margin>
+                                          <Insets right="15.0" />
+                                       </HBox.margin>
+                                       <image>
+                                          <Image url="@images/weather.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                                 <VBox.margin>
+                                    <Insets left="12.0" right="12.0" top="12.0" />
+                                 </VBox.margin>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="194.0" prefWidth="469.0" style="-fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <VBox alignment="TOP_CENTER" prefHeight="162.0" prefWidth="297.0" HBox.hgrow="ALWAYS">
+                                             <children>
+                                                <Label text="Информация о месте" textFill="WHITE">
+                                                   <VBox.margin>
+                                                      <Insets top="12.0" />
+                                                   </VBox.margin>
+                                                   <font>
+                                                      <Font size="15.0" />
+                                                   </font>
+                                                </Label>
+                                                <HBox alignment="CENTER" prefHeight="117.0" prefWidth="441.0" spacing="23.0">
+                                                   <children>
+                                                      <VBox alignment="CENTER_LEFT" spacing="12.0">
+                                                         <children>
+                                                            <Label fx:id="placeNameLabelInWeatherWidget" text="Название: New York" textFill="WHITE" />
+                                                            <Label fx:id="countryNamelabelInWeatherWidget" text="Страна: USA" textFill="WHITE" />
+                                                            <Label fx:id="timeZoneLabelInWeatherWidget" text="Часовой пояс: 12334" textFill="WHITE" />
+                                                         </children>
+                                                      </VBox>
+                                                      <ImageView fitHeight="94.0" fitWidth="104.0" pickOnBounds="true" preserveRatio="true">
+                                                         <image>
+                                                            <Image url="@images/city.png" />
+                                                         </image>
+                                                      </ImageView>
+                                                   </children>
+                                                </HBox>
+                                             </children>
+                                          </VBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets left="12.0" right="12.0" top="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <HBox alignment="CENTER_RIGHT" prefHeight="69.0" prefWidth="340.0" style="-fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                 <children>
+                                    <HBox alignment="CENTER" prefHeight="94.0" prefWidth="441.0" HBox.hgrow="ALWAYS">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="40.0" prefWidth="336.0" spacing="15.0">
+                                             <children>
+                                                <TextField fx:id="newCityNameTextFieldInWeatherWidget" alignment="CENTER" prefHeight="37.0" prefWidth="202.0" promptText="Название города" styleClass="textField" />
+                                                <Button fx:id="continueToApplyNewCityButtonInWeatherWidget" mnemonicParsing="false" prefHeight="37.0" prefWidth="99.0" styleClass="buttons" text="Далее" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <VBox.margin>
+                                    <Insets left="12.0" right="12.0" top="12.0" />
+                                 </VBox.margin>
+                              </HBox>
+                              <VBox alignment="BOTTOM_CENTER" prefHeight="87.0" prefWidth="364.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <HBox alignment="TOP_CENTER" prefHeight="125.0" prefWidth="469.0">
+                                       <children>
+                                          <Label fx:id="ErrorLabelInWeatherWidget" textFill="RED" />
+                                       </children>
+                                    </HBox>
+                                    <Label text="𝓢𝓸𝓾𝓻𝓬𝓮 𝓫𝔂 𝓸𝓹𝓮𝓷𝔀𝓮𝓪𝓽𝓱𝓮𝓻𝓶𝓪𝓹.𝓸𝓻𝓰" textFill="WHITE">
+                                       <VBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </VBox.margin>
+                                       <font>
+                                          <Font size="16.0" />
+                                       </font>
+                                    </Label>
+                                 </children>
+                              </VBox>
+                           </children>
+                        </VBox>
+                        <Pane fx:id="connectToTheChatPane" layoutX="122.0" layoutY="100.0" opacity="0.89" prefHeight="377.0" prefWidth="500.0" style="-fx-background-color: #191919; -fx-background-radius: 13;" visible="false">
+                           <children>
+                              <Label layoutX="157.0" layoutY="14.0" text="Подключение к чату" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <TextField fx:id="chatAddressTF" alignment="CENTER" layoutX="72.0" layoutY="85.0" prefHeight="39.0" prefWidth="380.0" promptText="Адрес чата" styleClass="textField" />
+                              <Button fx:id="continueButtonConnectToTheChat" alignment="CENTER" layoutX="72.0" layoutY="146.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="380.0" styleClass="buttons" text="Продолжить">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Button>
+                              <HBox alignment="CENTER" layoutX="80.0" layoutY="209.0" prefHeight="17.0" prefWidth="372.0">
+                                 <children>
+                                    <Label fx:id="errorLabelConnectToTheChat" text="Не удалось подключиться к чату" textFill="#f80000" visible="false" />
+                                 </children>
+                              </HBox>
+                              <Label fx:id="closeConnectToTheChatPaneLabel" layoutX="222.0" layoutY="337.0" text="Закрыть" textFill="#0099ff" underline="true">
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                           <effect>
+                              <DropShadow height="255.0" radius="127.0" spread="0.11" width="255.0" />
+                           </effect>
+                        </Pane>
+                        <HBox fx:id="settingsHBox" layoutX="-300.0" prefHeight="682.0" prefWidth="1035.0" style="-fx-background-color: WHITE;" visible="false">
+                           <children>
+                              <VBox alignment="TOP_CENTER" prefHeight="752.0" prefWidth="143.0" style="-fx-background-color: rgb(12,23,39);" HBox.hgrow="ALWAYS">
+                                 <effect>
+                                    <DropShadow height="0.0" radius="4.75" />
+                                 </effect>
+                                 <children>
+                                    <HBox alignment="CENTER_LEFT" prefHeight="11.0" prefWidth="307.0">
+                                       <children>
+                                          <ImageView fx:id="getbackInSettingsImageView" fitHeight="22.0" fitWidth="24.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                             <image>
+                                                <Image url="@images/settingsArrow.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets left="12.0" top="5.0" />
+                                             </HBox.margin>
+                                             <cursor>
+                                                <Cursor fx:constant="HAND" />
+                                             </cursor>
+                                          </ImageView>
+                                       </children>
+                                    </HBox>
+                                    <HBox alignment="CENTER">
+                                       <VBox.margin>
+                                          <Insets top="10.0" />
+                                       </VBox.margin>
+                                       <children>
+                                          <Label text="Настройки" textFill="WHITE">
+                                             <font>
+                                                <Font size="21.0" />
+                                             </font>
+                                          </Label>
+                                       </children>
+                                    </HBox>
+                                    <VBox alignment="CENTER" prefHeight="588.0" prefWidth="302.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <HBox fx:id="appearenceBlockInSettings" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="settingsTiles">
+                                             <children>
+                                                <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/appearence.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="Оформление" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="accountBlockInSettings" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="45.0" styleClass="settingsTiles">
+                                             <children>
+                                                <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/accountSettings.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="Профиль" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="searchBlockInSettings" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="65.0" styleClass="settingsTiles">
+                                             <children>
+                                                <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/searchSettings.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="Поиск" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="additionalBlockInSettings" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="15.0" styleClass="settingsTiles">
+                                             <children>
+                                                <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/add.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="Дополнительно" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
+                                          <HBox fx:id="aboutPropgramBlockInSettings" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="20.0" styleClass="settingsTiles">
+                                             <children>
+                                                <ImageView fitHeight="65.0" fitWidth="66.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/about.png" />
+                                                   </image>
+                                                </ImageView>
+                                                <Label text="О программе" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
+                                       </children>
+                                    </VBox>
+                                    <VBox alignment="CENTER" prefHeight="105.0" prefWidth="307.0" VBox.vgrow="ALWAYS">
+                                       <children>
+                                          <Pane prefHeight="43.0" prefWidth="302.0">
+                                             <children>
+                                                <Label fx:id="resetAllLabelInSettings" layoutX="106.0" layoutY="8.0" styleClass="labelButtons" text="Сбросить все" textFill="#0095ff" underline="true">
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </Label>
+                                                <ImageView fx:id="applyButtonIVYoResetAllSettings" fitHeight="31.0" fitWidth="39.0" layoutX="59.0" layoutY="2.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV" visible="false">
+                                                   <image>
+                                                      <Image url="@images/apply.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ImageView fx:id="cancelButtonIVInResetAllSettings" fitHeight="22.0" fitWidth="20.0" layoutX="197.0" layoutY="8.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV" visible="false">
+                                                   <image>
+                                                      <Image url="@images/cancel.png" />
+                                                   </image>
+                                                   <cursor>
+                                                      <Cursor fx:constant="HAND" />
+                                                   </cursor>
+                                                </ImageView>
+                                                <ProgressBar fx:id="settingsProgressBar" layoutX="51.0" layoutY="9.0" prefWidth="200.0" progress="0.0" visible="false" />
+                                             </children>
+                                          </Pane>
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </VBox>
+                              <Pane fx:id="settingsAllContentPane" opacity="0.97" prefHeight="682.0" prefWidth="630.0" style="-fx-background-color: #191919;" HBox.hgrow="ALWAYS">
+                                 <children>
+                                    <Pane layoutX="24.0" layoutY="14.0" prefHeight="655.0" prefWidth="717.0" styleClass="settingsContentPane">
+                                       <effect>
+                                          <DropShadow />
+                                       </effect>
+                                       <children>
+                                          <HBox alignment="CENTER" layoutX="3.0" layoutY="14.0" prefHeight="33.0" prefWidth="717.0" spacing="20.0">
+                                             <children>
+                                                <Label fx:id="blockTitleInSettings" text="Настройки" textFill="WHITE">
+                                                   <font>
+                                                      <Font size="21.0" />
+                                                   </font>
+                                                </Label>
+                                                <ImageView fx:id="blockIconInSettings" fitHeight="33.0" fitWidth="40.0" pickOnBounds="true" preserveRatio="true">
+                                                   <image>
+                                                      <Image url="@images/settings1.png" />
+                                                   </image>
+                                                </ImageView>
+                                             </children>
+                                          </HBox>
+                                          <ScrollPane fx:id="appearanceScrollPane" focusTraversable="false" hbarPolicy="NEVER" layoutX="12.0" layoutY="70.0" prefHeight="572.0" prefWidth="695.0" snapToPixel="false" style="-fx-font-size: 12;" vbarPolicy="ALWAYS" visible="false">
+                                             <content>
+                                                <Pane fx:id="appearenceInSettingsPane" prefHeight="815.0" prefWidth="723.0" style="-fx-background-color: rgb(12,23,39);">
+                                                   <children>
+                                                      <VBox layoutX="2.0" prefHeight="861.0" prefWidth="331.0" spacing="15.0">
+                                                         <children>
+                                                            <VBox prefHeight="455.0" prefWidth="331.0" spacing="10.0" style="-fx-background-color: rgb(12,23,39); -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Фон" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/appearenceBgIcon.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets left="5.0" />
+                                                                     </padding>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <VBox alignment="CENTER" prefHeight="125.0" prefWidth="309.0" spacing="20.0">
+                                                                     <children>
+                                                                        <Pane fx:id="loadImageForBGPane" prefHeight="109.0" prefWidth="299.0" style="-fx-background-color: #191919; -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                                           <children>
+                                                                              <Button fx:id="loadInmageButtonInAppearence" alignment="CENTER" focusTraversable="false" layoutX="32.0" layoutY="43.0" mnemonicParsing="false" prefHeight="27.0" prefWidth="241.0" styleClass="buttons" text="Загрузить изображение">
+                                                                                 <effect>
+                                                                                    <DropShadow />
+                                                                                 </effect>
+                                                                              </Button>
+                                                                              <HBox alignment="CENTER" layoutY="14.0" prefHeight="17.0" prefWidth="299.0">
+                                                                                 <children>
+                                                                                    <Label fx:id="choosedFilePathLabelInAppearence" text="Ничего не выбрано" textFill="WHITE" />
+                                                                                 </children>
+                                                                                 <padding>
+                                                                                    <Insets left="5.0" />
+                                                                                 </padding>
+                                                                              </HBox>
+                                                                              <Label fx:id="restoreBgImageLabel" layoutX="121.0" layoutY="87.0" styleClass="labelButtons" text="Сбросить" textFill="#008ef0" />
+                                                                           </children>
+                                                                           <effect>
+                                                                              <DropShadow />
+                                                                           </effect>
+                                                                        </Pane>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" right="10.0" />
+                                                                     </VBox.margin>
+                                                                  </VBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Стандартные фоны" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets left="5.0" />
+                                                                     </padding>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER" prefHeight="85.0" prefWidth="327.0" spacing="15.0">
+                                                                     <children>
+                                                                        <ImageView fx:id="standartBG2Button" fitHeight="57.0" fitWidth="91.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                                                           <image>
+                                                                              <Image url="@images/bg.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <ImageView fx:id="standartBG1Button" fitHeight="57.0" fitWidth="95.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                                                           <image>
+                                                                              <Image url="@images/bg_2.jpg" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Сплошной цвет" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/color.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets left="5.0" />
+                                                                     </padding>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <VBox prefWidth="317.0" spacing="10.0">
+                                                                     <children>
+                                                                        <CheckBox fx:id="useOneColorCheckBox" mnemonicParsing="false" text="Использовать сплошной цвет для фона" />
+                                                                        <ColorPicker fx:id="mainColorColorPickerInAppearence" style="-fx-background-color: #191919; -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;" styleClass="color-picker" />
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </VBox.margin>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox fx:id="opacityBlock" prefHeight="87.0" prefWidth="323.0" spacing="10.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Прозрачность" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/opacity.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <HBox prefHeight="17.0" prefWidth="264.0" spacing="20.0">
+                                                                     <children>
+                                                                        <Slider fx:id="opacitySlider" max="1.0" prefHeight="14.0" prefWidth="161.0" />
+                                                                        <Label fx:id="opacityValue" text="0%" textFill="WHITE" />
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox fx:id="soundsBlock" prefHeight="118.0" prefWidth="323.0" spacing="10.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="176.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Звуки" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fx:id="soundsInSettingsIcon" fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/sound.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <Button fx:id="turnOnorOffSoundsButton" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="166.0" styleClass="buttons" text="Выкл. звуки">
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </VBox.margin>
+                                                                     <effect>
+                                                                        <DropShadow />
+                                                                     </effect>
+                                                                  </Button>
+                                                                  <Pane prefHeight="28.0" prefWidth="319.0">
+                                                                     <children>
+                                                                        <Slider fx:id="soundVolumeSlider" layoutX="10.0" layoutY="7.0" max="6.0" prefHeight="14.0" prefWidth="170.0" value="3.0" />
+                                                                        <Label fx:id="soundsVolumeValueLabel" layoutX="197.0" layoutY="6.0" text="0%" textFill="WHITE" />
+                                                                     </children>
+                                                                  </Pane>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="55.0" prefWidth="323.0" spacing="10.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Анимации" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fx:id="soundsInSettingsIcon1" fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/animations.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <Button fx:id="turnOnOrOffAnimationsButton" mnemonicParsing="false" styleClass="buttons" text="Выкл. анимации">
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="10.0" left="10.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </Button>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox fillWidth="false" layoutX="369.0" prefHeight="660.0" prefWidth="299.0" spacing="15.0">
+                                                         <children>
+                                                            <VBox fx:id="weatherBlock" prefHeight="198.0" prefWidth="323.0" spacing="10.0" style="-fx-background-color: rgb(12,23,39); -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Погода" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/weatherIconInSettings.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets left="5.0" />
+                                                                     </padding>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <Button fx:id="turnOnorOffWeatherButton" focusTraversable="false" mnemonicParsing="false" styleClass="buttons" text="Не показывать погоду">
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </VBox.margin>
+                                                                     <effect>
+                                                                        <DropShadow />
+                                                                     </effect>
+                                                                  </Button>
+                                                                  <Button fx:id="updateWeatherDataButtonInSettings" focusTraversable="false" mnemonicParsing="false" prefHeight="25.0" prefWidth="170.0" styleClass="buttons" text="Обновить данные">
+                                                                     <effect>
+                                                                        <DropShadow />
+                                                                     </effect>
+                                                                     <VBox.margin>
+                                                                        <Insets left="10.0" />
+                                                                     </VBox.margin>
+                                                                  </Button>
+                                                                  <Pane prefHeight="25.0" prefWidth="312.0">
+                                                                     <children>
+                                                                        <TextField fx:id="cityWhereNeedToShowWeatherTextField" layoutX="13.0" prefHeight="32.0" prefWidth="216.0" promptText="Город" style="-fx-background-color: rgb(12,23,39); -fx-border-width: 1.5; -fx-border-color: WHITE; -fx-font-family: 'Arial Black'; -fx-text-fill: WHITE; -fx-border-radius: 13; -fx-background-radius: 13;" />
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </Pane>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox fx:id="colorsBlock" prefHeight="111.0" prefWidth="323.0" spacing="10.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Цвета" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/colorWheel.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <VBox>
+                                                                     <children>
+                                                                        <HBox prefHeight="17.0" prefWidth="264.0" spacing="20.0">
+                                                                           <children>
+                                                                              <Label text="Яркость:" textFill="WHITE" />
+                                                                              <Slider fx:id="brightnessSlider" prefHeight="16.0" prefWidth="147.0" />
+                                                                              <Label fx:id="brightnessValue" text="0%" textFill="WHITE" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                        <HBox prefHeight="17.0" prefWidth="264.0" spacing="13.0">
+                                                                           <children>
+                                                                              <Label text="Контраст:" textFill="WHITE" />
+                                                                              <Slider fx:id="ContrastSlider" prefHeight="14.0" prefWidth="147.0" />
+                                                                              <Label fx:id="ContrastValue" text="0%" textFill="WHITE" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                        <HBox prefHeight="17.0" prefWidth="264.0" spacing="21.0">
+                                                                           <children>
+                                                                              <Label text="Оттенок:" textFill="WHITE" />
+                                                                              <Slider fx:id="HueSlider" prefHeight="14.0" prefWidth="147.0" />
+                                                                              <Label fx:id="HueValue" text="0%" textFill="WHITE" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                        <HBox prefHeight="17.0" prefWidth="321.0" spacing="10.0">
+                                                                           <children>
+                                                                              <Label text="Насыщенность:" textFill="WHITE" />
+                                                                              <Slider fx:id="SaturationSlider" prefHeight="16.0" prefWidth="110.0" />
+                                                                              <Label fx:id="SaturationValue" text="0%" textFill="WHITE" />
+                                                                           </children>
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                           </VBox.margin>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox prefHeight="110.0" prefWidth="323.0" spacing="10.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" prefHeight="29.0" prefWidth="148.0" spacing="15.0">
+                                                                     <children>
+                                                                        <Label style="-fx-font-size: 20px;" text="Другое" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                        <ImageView fitHeight="30.0" fitWidth="29.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/other.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                     <VBox.margin>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </VBox.margin>
+                                                                  </HBox>
+                                                                  <CheckBox fx:id="showBarPolicysCheckBox" mnemonicParsing="false" text="Отображать полосы прокрутки">
+                                                                     <VBox.margin>
+                                                                        <Insets left="5.0" />
+                                                                     </VBox.margin>
+                                                                  </CheckBox>
+                                                               </children>
+                                                            </VBox>
+                                                            <VBox alignment="CENTER" prefHeight="146.0" prefWidth="323.0" spacing="10.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <VBox prefHeight="99.0" prefWidth="319.0" spacing="5.0">
+                                                                     <children>
+                                                                        <Button fx:id="resetAppearenceSettingsButton" alignment="CENTER" mnemonicParsing="false" styleClass="buttons" text="Восстановить значения">
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Button>
+                                                                        <Button fx:id="simpleViewButton" alignment="CENTER" mnemonicParsing="false" prefHeight="25.0" prefWidth="179.0" styleClass="buttons" text="Упрощенный вид">
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Button>
+                                                                        <Button fx:id="theBestViewButton" alignment="CENTER" mnemonicParsing="false" prefWidth="180.0" styleClass="buttons" text="Наилучший вид">
+                                                                           <VBox.margin>
+                                                                              <Insets bottom="5.0" left="10.0" />
+                                                                           </VBox.margin>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </VBox>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Pane>
+                                             </content>
+                                          </ScrollPane>
+                                          <Pane fx:id="userSettingsBlockPane" layoutX="38.0" layoutY="70.0" prefHeight="572.0" prefWidth="665.0" visible="false">
+                                             <children>
+                                                <ScrollPane hbarPolicy="NEVER" layoutX="-4.0" layoutY="2.0" prefHeight="558.0" prefWidth="540.0" style="-fx-background-color: rgb(12,23,39);">
+                                                   <content>
+                                                      <VBox spacing="10.0" style="-fx-background-color: rgb(12,23,39);">
+                                                         <children>
+                                                            <Pane fx:id="userSettingsBlock1" prefHeight="218.0" prefWidth="538.0" style="-fx-background-color: rgb(12,23,39); -fx-border-color: WHITE; -fx-background-radius: 13; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                               <children>
+                                                                  <Circle fx:id="userAvatarCircleInSettings" fill="WHITE" layoutX="428.0" layoutY="109.0" radius="85.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="2.0" />
+                                                                  <VBox layoutX="5.0" layoutY="50.0">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" prefHeight="39.0" prefWidth="299.0">
+                                                                           <children>
+                                                                              <Label fx:id="usernameInSettingsuserBlock" text="User Name" textFill="WHITE" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <HBox alignment="CENTER" prefHeight="46.0" prefWidth="279.0">
+                                                                           <children>
+                                                                              <Label fx:id="dateOfRegistrationLabelInSettings" text="05.06.2023 / 14:02:12" textFill="#00a6ff" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <HBox fx:id="buttonRemoveAccountAndExutHBox" layoutX="14.0" layoutY="179.0" spacing="20.0">
+                                                                     <children>
+                                                                        <Button fx:id="removeAccountInSettingsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="168.0" style="-fx-background-color: RED;" styleClass="buttons" text="Удалить аккаунт" textFill="WHITE">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                        <Button fx:id="exitFromAccountInSettingsButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="132.0" styleClass="buttons" text="Выйти" textFill="WHITE">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox fx:id="buttonsToConfirmRemoveAccountHbox" alignment="CENTER" layoutX="14.0" layoutY="160.0" prefHeight="44.0" prefWidth="292.0" spacing="120.0" visible="false">
+                                                                     <children>
+                                                                        <ImageView fx:id="confirmToRemoveAccountIVButton" fitHeight="37.0" fitWidth="43.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                                                           <image>
+                                                                              <Image url="@images/apply.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <ImageView fx:id="rejectToRemoveAccountIVButton" fitHeight="27.0" fitWidth="23.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                                                           <image>
+                                                                              <Image url="@images/cancel.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                               <effect>
+                                                                  <DropShadow />
+                                                               </effect>
+                                                            </Pane>
+                                                            <Pane fx:id="changeUserDataPane" prefHeight="189.0" prefWidth="538.0" style="-fx-background-color: rgb(12,23,39); -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                               <children>
+                                                                  <VBox fx:id="buttonsInUserSettingsVBox" layoutX="22.0" layoutY="43.0" spacing="20.0">
+                                                                     <children>
+                                                                        <Button fx:id="changeCityButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" styleClass="buttons" text="Изменить город" textFill="WHITE">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                        <Button fx:id="changePasswordButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" styleClass="buttons" text="Изменить пароль" textFill="WHITE">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                        <Button fx:id="changeLoginButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" styleClass="buttons" text="Изменить логин" textFill="WHITE">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Button>
+                                                                     </children>
+                                                                  </VBox>
+                                                                  <Pane fx:id="userImagesYouCanToChangeAccountData" layoutX="292.0" layoutY="19.0" prefHeight="146.0" prefWidth="194.0">
+                                                                     <children>
+                                                                        <ImageView fx:id="userSettingsImageWhereYouCanToChangeAccountData" fitHeight="100.0" fitWidth="89.0" layoutY="39.85055923461914" pickOnBounds="true" preserveRatio="true" rotate="-26.6">
+                                                                           <image>
+                                                                              <Image url="@images/changeCity.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <ImageView fx:id="userSettingsImageWhereYouCanToChangeAccountData1" fitHeight="100.0" fitWidth="89.0" layoutX="60.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <image>
+                                                                              <Image url="@images/login.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <ImageView fx:id="userSettingsImageWhereYouCanToChangeAccountData2" fitHeight="100.0" fitWidth="89.0" layoutX="105.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" rotate="31.0">
+                                                                           <image>
+                                                                              <Image url="@images/password.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </Pane>
+                                                                  <VBox fx:id="componenetsToChangeSomethingInUserSettings" layoutX="22.0" layoutY="194.0" prefHeight="119.0" prefWidth="299.0" spacing="15.0" visible="false">
+                                                                     <children>
+                                                                        <TextField fx:id="currentValueTFInUserSettings" alignment="CENTER" prefHeight="32.0" prefWidth="299.0" promptText="Текущий логин" styleClass="textField" />
+                                                                        <TextField fx:id="newValueTFInUserSettings" alignment="CENTER" prefHeight="32.0" prefWidth="299.0" promptText="Новый логин" styleClass="textField" />
+                                                                        <HBox spacing="10.0">
+                                                                           <children>
+                                                                              <Button fx:id="continueButtonInUserSettings" mnemonicParsing="false" prefHeight="25.0" prefWidth="194.0" styleClass="buttons" text="Продолжить" />
+                                                                              <Button fx:id="cancelButtonInUserSettings" mnemonicParsing="false" prefHeight="25.0" prefWidth="122.0" style="-fx-background-color: RED;" styleClass="buttons" text="Отмена" textFill="WHITE" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </VBox>
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="129.0" prefWidth="538.0" style="-fx-background-color: rgb(12,23,39); -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                               <children>
+                                                                  <Button fx:id="setPasswordToAccountButton" layoutX="21.0" layoutY="52.0" mnemonicParsing="false" styleClass="buttons" text="Установить пароль на аккаунт" />
+                                                                  <ImageView fitHeight="89.0" fitWidth="97.0" layoutX="427.0" layoutY="20.0" pickOnBounds="true" preserveRatio="true">
+                                                                     <image>
+                                                                        <Image url="@images/security.png" />
+                                                                     </image>
+                                                                  </ImageView>
+                                                                  <Pane fx:id="buttonToSetPasswordPane" layoutX="14.0" layoutY="11.0" prefHeight="103.0" prefWidth="352.0" visible="false">
+                                                                     <children>
+                                                                        <HBox alignment="CENTER" layoutX="14.0" layoutY="39.0" spacing="10.0">
+                                                                           <children>
+                                                                              <Button fx:id="setPasswordByTheHandButton" mnemonicParsing="false" styleClass="buttons" text="Задать вручную" />
+                                                                              <Button fx:id="setPasswordAutomaticButton" mnemonicParsing="false" styleClass="buttons" text="Задать автоматически" />
+                                                                              <Button fx:id="cancelToSetPasswordButton" mnemonicParsing="false" style="-fx-background-color: RED;" styleClass="buttons" text="Отмена" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </Pane>
+                                                                  <Pane fx:id="setPasswordByTheHandPane" layoutX="14.0" layoutY="17.0" prefHeight="103.0" prefWidth="400.0" visible="false">
+                                                                     <children>
+                                                                        <HBox layoutX="10.0" layoutY="26.0" spacing="15.0">
+                                                                           <children>
+                                                                              <TextField fx:id="textFieldToSetPasswordByTheHand" alignment="CENTER" focusTraversable="false" prefHeight="33.0" prefWidth="260.0" promptText="Введите пароль" styleClass="textField" />
+                                                                              <Button fx:id="continueButtonInSettingsPasswordByTheHand" mnemonicParsing="false" prefHeight="35.0" prefWidth="115.0" styleClass="buttons" text="Продолжить" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Label fx:id="cancelSettingPasswordByTheHandLabel" layoutX="205.0" layoutY="81.0" styleClass="labelButtons" text="Отмена" textFill="#0095ff" underline="true">
+                                                                           <cursor>
+                                                                              <Cursor fx:constant="HAND" />
+                                                                           </cursor>
+                                                                        </Label>
+                                                                     </children>
+                                                                  </Pane>
+                                                                  <Pane fx:id="confirmToRemovePasswordPane" layoutX="21.0" layoutY="24.0" prefHeight="87.0" prefWidth="319.0" visible="false">
+                                                                     <children>
+                                                                        <ImageView fx:id="cancelToRemovePasswordIV" fitHeight="46.0" fitWidth="39.0" layoutX="256.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                                                           <image>
+                                                                              <Image url="@images/cancel.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <ImageView fx:id="applyToRemovePasswordIV" fitHeight="56.0" fitWidth="50.0" layoutX="14.0" layoutY="19.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                                                           <image>
+                                                                              <Image url="@images/apply.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                     </children>
+                                                                  </Pane>
+                                                                  <Pane fx:id="setPasswordInAutoModePane" layoutX="21.0" layoutY="17.0" prefHeight="94.0" prefWidth="380.0" visible="false">
+                                                                     <children>
+                                                                        <Label fx:id="autoInstalledPasswordLabel" layoutX="14.0" layoutY="39.0" styleClass="labelButtons" text="Установленный пароль: 12345" textFill="WHITE" />
+                                                                        <HBox alignment="CENTER" layoutX="275.0" layoutY="35.0" spacing="10.0">
+                                                                           <children>
+                                                                              <Button fx:id="okButtonInSetPasswordInAutoMode" mnemonicParsing="false" prefHeight="25.0" prefWidth="43.0" styleClass="buttons" text="Ок" />
+                                                                              <Button fx:id="cancelButtonInSetPasswordInAutoMode" mnemonicParsing="false" prefHeight="25.0" prefWidth="72.0" style="-fx-background-color: RED;" styleClass="buttons" text="Отмена" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                     </children>
+                                                                  </Pane>
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                      </VBox>
+                                                   </content>
+                                                </ScrollPane>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="searchPaneInSettings" layoutX="31.0" layoutY="90.0" prefHeight="200.0" prefWidth="500.0" style="-fx-background-color: rgb(12,23,39); -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;" visible="false">
+                                             <effect>
+                                                <DropShadow />
+                                             </effect>
+                                             <children>
+                                                <HBox layoutX="14.0" layoutY="34.0" spacing="10.0">
+                                                   <children>
+                                                      <Button fx:id="turnOnOrOffSearchUsingButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" styleClass="buttons" text="Выкл. поиск" />
+                                                      <Button fx:id="clearSearchJournalButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="194.0" styleClass="buttons" text="Очистить журнал поиска" />
+                                                   </children>
+                                                </HBox>
+                                                <VBox layoutX="14.0" layoutY="100.0" spacing="20.0">
+                                                   <children>
+                                                      <RadioButton fx:id="showingIconsRequestsInSearchRadioButton" mnemonicParsing="false" text="Отображать эскизы" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Arial Black" size="12.0" />
+                                                         </font>
+                                                      </RadioButton>
+                                                      <RadioButton fx:id="makingSearchJournalRadioButton" mnemonicParsing="false" text="Вести журнал поиска" textFill="WHITE">
+                                                         <font>
+                                                            <Font name="Arial Black" size="12.0" />
+                                                         </font>
+                                                      </RadioButton>
+                                                   </children>
+                                                </VBox>
+                                             </children>
+                                          </Pane>
+                                          <Pane fx:id="aboutProgramPaneInSettings" layoutX="31.0" layoutY="63.0" prefHeight="558.0" prefWidth="665.0" visible="false">
+                                             <children>
+                                                <Pane layoutX="14.0" layoutY="14.0" style="-fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5; -fx-background-color: rgb(12,23,39); -fx-background-radius: 13;">
+                                                   <children>
+                                                      <HBox alignment="CENTER" spacing="10.0">
+                                                         <children>
+                                                            <Label text="О системе" textFill="WHITE" underline="true">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ImageView fitHeight="31.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@images/system.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <Label fx:id="systemNameLabel" layoutY="54.0" text="Система: Windows 11" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="RAMLabel" layoutY="82.0" text="RAM: 6 Gb" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="sizeScreenLabel" layoutY="111.0" text="Размер экрана: 1920x1080" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="thisSystemIsMeetingMinSysReqLabel" layoutY="142.0" text="Эта система отвечает минимальным требованиям" textFill="#298000" underline="true">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Pane>
+                                                <Pane layoutX="11.0" layoutY="225.0" prefHeight="170.0" prefWidth="372.0" style="-fx-background-color: rgb(12,23,39); -fx-background-radius: 13; -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                   <children>
+                                                      <HBox alignment="CENTER" spacing="10.0">
+                                                         <children>
+                                                            <Label text="О программе" textFill="WHITE">
+                                                               <font>
+                                                                  <Font size="22.0" />
+                                                               </font>
+                                                            </Label>
+                                                            <ImageView fitHeight="31.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@images/program.png" />
+                                                               </image>
+                                                            </ImageView>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                      <Label fx:id="appTitleLabel" layoutY="50.0" text="Название: MESSENGER V.5" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="appVersionLabel" layoutY="74.0" text="Версия: 5.0" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="appBuildLabel" layoutY="101.0" text="Сборка: 22H2" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                      <Label fx:id="appDeveloperLabel" layoutY="130.0" text="Разработчик:" textFill="WHITE">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                      </Label>
+                                                   </children>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Pane>
+                                                <Pane fx:id="copySomethingPaneInAboutProgramBlock" layoutX="11.0" layoutY="425.0" prefHeight="65.0" prefWidth="367.0" style="-fx-background-color: rgb(12,23,39); -fx-border-color: WHITE; -fx-border-radius: 13; -fx-border-width: 1.5;">
+                                                   <children>
+                                                      <Label fx:id="copyAboutSystemLabel" styleClass="labelButtons" text="Скопировать &quot;О системе&quot;" textFill="#0090ff">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <Label fx:id="copyAboutProgramLabel" layoutY="24.0" styleClass="labelButtons" text="Скопировать &quot;О программе&quot;" textFill="#0090ff">
+                                                         <padding>
+                                                            <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                                                         </padding>
+                                                         <cursor>
+                                                            <Cursor fx:constant="HAND" />
+                                                         </cursor>
+                                                      </Label>
+                                                      <HBox fx:id="textHadCopiedLabelHbox" alignment="CENTER_LEFT" layoutX="8.0" layoutY="51.0" prefHeight="20.0" prefWidth="352.0" visible="false">
+                                                         <children>
+                                                            <Label text="Скопировано ✔" textFill="GREEN">
+                                                               <HBox.margin>
+                                                                  <Insets left="5.0" />
+                                                               </HBox.margin>
+                                                            </Label>
+                                                         </children>
+                                                         <padding>
+                                                            <Insets top="12.0" />
+                                                         </padding>
+                                                      </HBox>
+                                                   </children>
+                                                   <effect>
+                                                      <DropShadow />
+                                                   </effect>
+                                                </Pane>
+                                             </children>
+                                          </Pane>
+                                          <ScrollPane fx:id="addBlockInSettingsPane" fitToWidth="true" layoutX="23.0" layoutY="63.0" prefHeight="565.0" prefWidth="678.0" visible="false">
+                                             <content>
+                                                <Pane prefHeight="789.0" prefWidth="788.0" style="-fx-background-color: rgb(12,23,39);">
+                                                   <children>
+                                                      <VBox layoutX="14.0" layoutY="14.0" prefWidth="331.0" spacing="20.0">
+                                                         <children>
+                                                            <Pane fx:id="splashSettingsBlockPane" prefHeight="206.0" prefWidth="331.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <Button fx:id="disableSplashesButton" layoutX="11.0" layoutY="74.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="309.0" styleClass="buttons" text="Отключить сплеши" />
+                                                                  <HBox alignment="CENTER_LEFT" layoutY="2.0" prefHeight="43.0" prefWidth="331.0" spacing="10.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </HBox.margin>
+                                                                           <image>
+                                                                              <Image url="@images/text.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <Label style="-fx-font-size: 20;" text="Сплеши" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </padding>
+                                                                  </HBox>
+                                                                  <Button fx:id="displayYourSplashButton" layoutX="11.0" layoutY="111.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="309.0" styleClass="buttons" text="Отобразить свой сплеш" />
+                                                                  <HBox fx:id="setYourSplashHBoxControls" alignment="CENTER" layoutY="198.0" prefHeight="65.0" prefWidth="331.0" spacing="10.0" visible="false">
+                                                                     <children>
+                                                                        <TextField fx:id="enterYourSplashTF" alignment="CENTER" prefHeight="33.0" prefWidth="239.0" promptText="Введите свой сплеш" styleClass="textField" />
+                                                                        <Button fx:id="continueButtonToSetYourSplash" mnemonicParsing="false" prefHeight="33.0" prefWidth="59.0" styleClass="buttons" text="Далее" />
+                                                                     </children>
+                                                                  </HBox>
+                                                                  <HBox alignment="TOP_CENTER" layoutX="15.0" layoutY="152.0" spacing="20.0">
+                                                                     <children>
+                                                                        <Slider fx:id="splashAnimationSpeedSlider" max="3000.0" min="200.0" prefHeight="39.0" prefWidth="224.0" showTickLabels="true" snapToTicks="true">
+                                                                           <tooltip>
+                                                                              <Tooltip styleClass="-" text="Скорость анимации" />
+                                                                           </tooltip>
+                                                                        </Slider>
+                                                                        <Label fx:id="splashAnimationValueLabel" text="300 мс" textFill="WHITE" />
+                                                                     </children>
+                                                                  </HBox>
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane fx:id="anotherSettingsInAnottherSettingsBlockPane" prefHeight="127.0" prefWidth="331.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" layoutY="6.0" prefHeight="43.0" prefWidth="331.0" spacing="10.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </HBox.margin>
+                                                                           <image>
+                                                                              <Image url="@images/another.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <Label style="-fx-font-size: 20;" text="Другое" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </padding>
+                                                                  </HBox>
+                                                                  <Button fx:id="requestConfirmBeforeCloseButton" alignment="CENTER" layoutX="14.0" layoutY="75.0" mnemonicParsing="false" prefHeight="26.0" prefWidth="302.0" styleClass="buttons" text="Запрашивать подтверждение перед закрытием" wrapText="true" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane fx:id="hotKeysSettingsBlockInSettings" prefHeight="259.0" prefWidth="331.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" layoutY="6.0" prefHeight="43.0" prefWidth="331.0" spacing="10.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </HBox.margin>
+                                                                           <image>
+                                                                              <Image url="@images/keyboard.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <Label style="-fx-font-size: 20;" text="Горячие клавиши" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </padding>
+                                                                  </HBox>
+                                                                  <ScrollPane fx:id="hotKeysScrollPane" fitToWidth="true" layoutX="14.0" layoutY="62.0" prefHeight="172.0" prefWidth="309.0">
+                                                                     <content>
+                                                                        <VBox prefHeight="180.0" prefWidth="288.0" spacing="10.0" style="-fx-background-color: rgb(12,23,39);">
+                                                                           <children>
+                                                                              <HBox alignment="CENTER" prefHeight="28.0" prefWidth="302.0">
+                                                                                 <children>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="257.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label text="Закрыть приложение" textFill="WHITE" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label fx:id="hotKeyForCloseApp" styleClass="labelButtons" text="Esc" textFill="#0066ff" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER" prefHeight="28.0" prefWidth="302.0">
+                                                                                 <children>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="257.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label text="Вызов меню поиска" textFill="WHITE" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label fx:id="hotKeyForCallSearchMenu" styleClass="labelButtons" text="Ctrl + S" textFill="#0066ff" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER" prefHeight="28.0" prefWidth="302.0">
+                                                                                 <children>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="257.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label text="Вызов меню настроек" textFill="WHITE" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label fx:id="hotKeyForCallSettingsMenu" styleClass="labelButtons" text="Ctrl + I" textFill="#0066ff" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER" prefHeight="28.0" prefWidth="302.0">
+                                                                                 <children>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="257.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label text="Вызов меню справки" textFill="WHITE" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label fx:id="hotKeyForCallHelpMenu" styleClass="labelButtons" text="Ctrl + H" textFill="#0066ff" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                              <HBox alignment="CENTER" prefHeight="28.0" prefWidth="302.0">
+                                                                                 <children>
+                                                                                    <HBox alignment="CENTER_LEFT" prefHeight="28.0" prefWidth="257.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label text="Создание скриншота" textFill="WHITE" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                    <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+                                                                                       <children>
+                                                                                          <Label fx:id="hotKeyForMakeScreenshot" styleClass="labelButtons" text="F3" textFill="#0066ff" />
+                                                                                       </children>
+                                                                                    </HBox>
+                                                                                 </children>
+                                                                              </HBox>
+                                                                           </children>
+                                                                           <padding>
+                                                                              <Insets left="5.0" right="5.0" />
+                                                                           </padding>
+                                                                        </VBox>
+                                                                     </content>
+                                                                  </ScrollPane>
+                                                                  <Pane fx:id="changeKeyPane" layoutX="14.0" layoutY="62.0" prefHeight="190.0" prefWidth="299.0" visible="false">
+                                                                     <children>
+                                                                        <VBox layoutX="8.0" layoutY="110.0" spacing="5.0">
+                                                                           <children>
+                                                                              <RadioButton mnemonicParsing="false" text="С зажатым Alt">
+                                                                                 <toggleGroup>
+                                                                                    <ToggleGroup fx:id="additionalKeysToggleGroup" />
+                                                                                 </toggleGroup>
+                                                                              </RadioButton>
+                                                                              <RadioButton mnemonicParsing="false" text="С зажатым Ctrl" toggleGroup="$additionalKeysToggleGroup" />
+                                                                              <RadioButton mnemonicParsing="false" selected="true" text="Ни с чем" toggleGroup="$additionalKeysToggleGroup" />
+                                                                           </children>
+                                                                        </VBox>
+                                                                        <HBox alignment="CENTER" layoutX="-2.0" layoutY="44.0" prefHeight="47.0" prefWidth="302.0">
+                                                                           <children>
+                                                                              <Label fx:id="pressedKeyLabel" text="Нажите что-нибудь..." textFill="#0047ff" />
+                                                                           </children>
+                                                                        </HBox>
+                                                                        <Button fx:id="getBackInSettingHotKeys" layoutX="196.0" layoutY="136.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="95.0" styleClass="buttons" text="Назад" />
+                                                                     </children>
+                                                                  </Pane>
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                      </VBox>
+                                                      <VBox layoutX="389.0" layoutY="14.0" prefHeight="752.0" prefWidth="264.0" spacing="20.0">
+                                                         <children>
+                                                            <Pane fx:id="toolBarSettingsPane" prefHeight="401.0" prefWidth="372.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" layoutY="6.0" prefHeight="47.0" prefWidth="260.0" spacing="10.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </HBox.margin>
+                                                                           <image>
+                                                                              <Image url="@images/tools.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <Label style="-fx-font-size: 20;" text="Панель инструментов" textFill="WHITE" />
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </padding>
+                                                                  </HBox>
+                                                                  <Button fx:id="hideToolsBarButton" layoutX="14.0" layoutY="74.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="240.0" styleClass="buttons" text="Скрыть панель инструментов" />
+                                                                  <Label layoutX="14.0" layoutY="149.0" style="-fx-font-size: 17;" text="Отображать:" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="17.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ScrollPane fx:id="contentOnToolBarScrollPane" fitToHeight="true" fitToWidth="true" layoutX="14.0" layoutY="192.0" prefHeight="133.0" prefWidth="241.0">
+                                                                     <content>
+                                                                        <VBox fx:id="disableContentOnToolBarVBox" prefHeight="156.0" prefWidth="224.0" spacing="10.0" style="-fx-background-color: rgb(12,23,39);">
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" text="Кнопка выключения" />
+                                                                              <CheckBox mnemonicParsing="false" text="Кнопка музыкального плеера" />
+                                                                              <CheckBox mnemonicParsing="false" text="Кнопка настроек" />
+                                                                              <CheckBox mnemonicParsing="false" text="Виджет погоды" />
+                                                                              <CheckBox mnemonicParsing="false" text="Виджет пользователя" />
+                                                                              <Button fx:id="applyButtonToShowElementsOnToolsBar" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" styleClass="buttons" text="Применить">
+                                                                                 <VBox.margin>
+                                                                                    <Insets top="10.0" />
+                                                                                 </VBox.margin>
+                                                                              </Button>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </content>
+                                                                  </ScrollPane>
+                                                                  <RadioButton fx:id="hideToolsBarAutoRadioButton" layoutX="14.0" layoutY="359.0" mnemonicParsing="false" text="Скрывать автоматически" />
+                                                               </children>
+                                                            </Pane>
+                                                            <Pane prefHeight="313.0" prefWidth="372.0" styleClass="settingsBlocks">
+                                                               <children>
+                                                                  <HBox alignment="CENTER_LEFT" layoutX="6.0" layoutY="8.0" prefHeight="47.0" prefWidth="352.0" spacing="10.0">
+                                                                     <children>
+                                                                        <ImageView fitHeight="37.0" fitWidth="38.0" pickOnBounds="true" preserveRatio="true">
+                                                                           <HBox.margin>
+                                                                              <Insets left="10.0" />
+                                                                           </HBox.margin>
+                                                                           <image>
+                                                                              <Image url="@images/notification.png" />
+                                                                           </image>
+                                                                        </ImageView>
+                                                                        <Label style="-fx-font-size: 20;" text="Уведомления" textFill="WHITE">
+                                                                           <font>
+                                                                              <Font size="20.0" />
+                                                                           </font>
+                                                                        </Label>
+                                                                     </children>
+                                                                     <padding>
+                                                                        <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+                                                                     </padding>
+                                                                  </HBox>
+                                                                  <RadioButton fx:id="showNotificationRadioButton" layoutX="25.0" layoutY="78.0" mnemonicParsing="false" text="Показывать уведомления" />
+                                                                  <Label layoutX="25.0" layoutY="120.0" prefHeight="26.0" prefWidth="224.0" style="-fx-font-size: 17;" text="Показывать уведомления:" textFill="WHITE">
+                                                                     <font>
+                                                                        <Font size="20.0" />
+                                                                     </font>
+                                                                  </Label>
+                                                                  <ScrollPane fx:id="contentOnToolBarScrollPane1" fitToHeight="true" fitToWidth="true" layoutX="25.0" layoutY="157.0" prefHeight="133.0" prefWidth="224.0">
+                                                                     <content>
+                                                                        <VBox fx:id="whatNotificationDoYouWantToApplyVBox" prefHeight="131.0" prefWidth="210.0" spacing="10.0" style="-fx-background-color: rgb(12,23,39);">
+                                                                           <children>
+                                                                              <CheckBox mnemonicParsing="false" text="Создание скриншотов" />
+                                                                              <CheckBox mnemonicParsing="false" text="Создание чата" />
+                                                                              <CheckBox mnemonicParsing="false" text="Сброс настроек" />
+                                                                              <Button fx:id="applyButtonToSendNotifications" mnemonicParsing="false" prefHeight="25.0" prefWidth="139.0" styleClass="buttons" text="Применить">
+                                                                                 <VBox.margin>
+                                                                                    <Insets top="10.0" />
+                                                                                 </VBox.margin>
+                                                                              </Button>
+                                                                           </children>
+                                                                        </VBox>
+                                                                     </content>
+                                                                  </ScrollPane>
+                                                               </children>
+                                                            </Pane>
+                                                         </children>
+                                                      </VBox>
+                                                   </children>
+                                                </Pane>
+                                             </content>
+                                          </ScrollPane>
+                                       </children>
+                                    </Pane>
+                                 </children>
+                              </Pane>
+                           </children>
+                        </HBox>
+                        <Pane fx:id="closeConfirmPane" layoutX="34.0" layoutY="198.0" prefHeight="200.0" prefWidth="654.0" style="-fx-background-color: #191919; -fx-background-radius: 13;" visible="false">
+                           <effect>
+                              <DropShadow />
+                           </effect>
+                           <children>
+                              <Label layoutX="153.0" layoutY="23.0" text="Вы действительно хотите выйти?" textFill="WHITE">
+                                 <font>
+                                    <Font size="20.0" />
+                                 </font>
+                              </Label>
+                              <Button fx:id="continueButtonCloseConfirmPane" alignment="CENTER" focusTraversable="false" layoutX="21.0" layoutY="146.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="141.0" styleClass="buttons" text="Продолжить" />
+                              <Button fx:id="rejectButtonCloseConfirmPane" alignment="CENTER" layoutX="499.0" layoutY="146.0" mnemonicParsing="false" prefHeight="28.0" prefWidth="141.0" style="-fx-background-color: RED;" styleClass="buttons" text="Отмена" />
+                           </children>
+                        </Pane>
+                        <Label layoutX="270.0" layoutY="383.0" text="TODO: Animation for search, music. &#10;SPLASHES, RAINBOW SPLASH" visible="false">
+                           <font>
+                              <Font size="17.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="createChatPane" layoutX="91.0" layoutY="124.0" opacity="0.89" prefHeight="349.0" prefWidth="540.0" style="-fx-background-color: #191919; -fx-background-radius: 13;" visible="false">
+                           <effect>
+                              <DropShadow height="255.0" radius="127.0" width="255.0" />
+                           </effect>
+                           <children>
+                              <Label layoutX="201.0" layoutY="14.0" text="Создание чата" textFill="WHITE">
+                                 <font>
+                                    <Font size="18.0" />
+                                 </font>
+                              </Label>
+                              <VBox layoutX="14.0" layoutY="75.0" spacing="15.0">
+                                 <children>
+                                    <Label fx:id="addressLabelInCreateChatPane" text="Адрес: 0.0.0.0" textFill="WHITE" />
+                                    <Label fx:id="portLabelInCreateChatPane" text="Порт: 8080" textFill="WHITE" />
+                                 </children>
+                              </VBox>
+                              <HBox alignment="CENTER" layoutX="128.0" layoutY="291.0" spacing="20.0">
+                                 <children>
+                                    <Button fx:id="continueInCreateChatPaneButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" styleClass="buttons" text="Далее" />
+                                    <Button fx:id="cancelToCreateChatButton" mnemonicParsing="false" prefHeight="25.0" prefWidth="145.0" style="-fx-background-color: RED;" styleClass="buttons" text="Отмена" />
+                                 </children>
+                              </HBox>
+                              <VBox layoutX="14.0" layoutY="150.0" spacing="10.0">
+                                 <children>
+                                    <Label fx:id="createAnotherPortLabel" styleClass="labelButtons" text="Создать другой порт" textFill="#0077ff" />
+                                    <Label fx:id="copyChatAddressLabel" styleClass="labelButtons" text="Копировать" textFill="#0077ff" />
+                                 </children>
+                              </VBox>
+                              <ImageView fitHeight="117.0" fitWidth="128.0" layoutX="392.0" layoutY="92.0" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@images/chatIcon.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                        <Pane layoutX="-299.0" prefHeight="672.0" prefWidth="1200.0" style="-fx-background-color: rgb(12,23,39);" visible="false">
+                           <children>
+                              <ScrollPane fitToHeight="true" fitToWidth="true" layoutX="110.0" layoutY="43.0" prefHeight="492.0" prefWidth="982.0" style="-fx-background-color: #191919; -fx-background-radius: 13; -fx-border-radius: 13; -fx-border-color: white;">
+                                 <content>
+                                    <VBox fx:id="messagesVBox" alignment="CENTER" prefHeight="200.0" prefWidth="100.0" spacing="10.0" style="-fx-background-color: #191919; -fx-border-radius: 13; -fx-background-radius: 13;">
+                                       <padding>
+                                          <Insets left="10.0" right="10.0" top="10.0" />
+                                       </padding>
+                                    </VBox>
+                                 </content>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                              </ScrollPane>
+                              <HBox alignment="CENTER" layoutX="110.0" layoutY="570.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="messageTextField" alignment="CENTER" prefHeight="39.0" prefWidth="923.0" promptText="Введите сообщение" styleClass="textField" />
+                                    <ImageView fx:id="sendMessageButtonIV" fitHeight="44.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                       <image>
+                                          <Image url="@../Chat/images/send.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <ImageView fx:id="closeChatWidget" fitHeight="50.0" fitWidth="49.0" layoutX="5.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true" rotate="180.0" styleClass="buttonIV">
+                                 <image>
+                                    <Image url="@images/arrow.png" />
+                                 </image>
+                              </ImageView>
+                           </children>
+                        </Pane>
+                     </children>
+                  </Pane>
+                  <HBox fx:id="toolBarHbox" alignment="CENTER" opacity="0.89" prefHeight="86.0" prefWidth="901.0" spacing="20.0" style="-fx-background-color: #28252e;">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <HBox alignment="CENTER" spacing="20.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <ImageView fx:id="turnOffImageView" fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                 <image>
+                                    <Image url="@images/turnoff.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="MusicImageView" fitHeight="50.0" fitWidth="56.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                 <image>
+                                    <Image url="@images/music.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="settingsImageView" fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                 <image>
+                                    <Image url="@images/settings.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                              <ImageView fx:id="searchButtonImageView" accessibleRole="BUTTON" fitHeight="49.0" fitWidth="52.0" pickOnBounds="true" preserveRatio="true" styleClass="buttonIV">
+                                 <image>
+                                    <Image url="@images/search.png" />
+                                 </image>
+                                 <effect>
+                                    <DropShadow />
+                                 </effect>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </ImageView>
+                           </children>
+                        </HBox>
+                        <HBox alignment="TOP_RIGHT" prefHeight="86.0" prefWidth="393.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                           <children>
+                              <Pane fx:id="weatherPane" prefHeight="62.0" prefWidth="190.0" styleClass="userAvatarTile">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                                 <HBox.margin>
+                                    <Insets bottom="12.0" right="6.0" top="12.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <ImageView fx:id="weatherImage" fitHeight="50.0" fitWidth="50.0" layoutX="14.0" layoutY="6.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/weather.png" />
+                                       </image>
+                                    </ImageView>
+                                    <VBox layoutX="77.0" layoutY="12.0" prefHeight="39.0" prefWidth="107.0" spacing="5.0">
+                                       <children>
+                                          <Label fx:id="weatherTempLabel" text="13 C/ 54F" textFill="WHITE" />
+                                          <Label fx:id="weatherDescriptionLabel" prefHeight="17.0" prefWidth="120.0" text="CLEAR SKY" textFill="WHITE" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </Pane>
+                              <Pane fx:id="userWidgetPane" prefHeight="62.0" prefWidth="165.0" styleClass="userAvatarTile">
+                                 <HBox.margin>
+                                    <Insets bottom="12.0" right="6.0" top="12.0" />
+                                 </HBox.margin>
+                                 <children>
+                                    <HBox layoutX="9.0" layoutY="7.0" prefHeight="50.0" prefWidth="148.0" spacing="10.0">
+                                       <children>
+                                          <HBox alignment="CENTER" prefHeight="17.0" prefWidth="126.0">
+                                             <children>
+                                                <Label fx:id="userNameLabel" text="User name" textFill="WHITE" />
+                                             </children>
+                                          </HBox>
+                                          <Circle fx:id="avatarCircle" radius="25.0" stroke="WHITE" strokeType="INSIDE" strokeWidth="3.0" />
+                                       </children>
+                                    </HBox>
+                                 </children>
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Pane>
+                           </children>
+                        </HBox>
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </children>
+</VBox>

@@ -1,0 +1,247 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.CheckBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.PasswordField?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="mainVBox" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="667.0" prefWidth="1000.0" stylesheets="@css/main.css" xmlns="http://javafx.com/javafx/20.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.darkstudio.messenger_v5.StartWindowController">
+   <children>
+      <HBox fx:id="controlBarHbox" prefHeight="43.0" prefWidth="1200.0" styleClass="controlsBar">
+         <children>
+            <HBox alignment="CENTER_LEFT" prefHeight="43.0" prefWidth="217.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="windowIconImageView" fitHeight="31.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@images/icon.png" />
+                     </image>
+                     <HBox.margin>
+                        <Insets bottom="5.0" left="10.0" top="5.0" />
+                     </HBox.margin>
+                  </ImageView>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <Label fx:id="title" text="Messenger v.5" textFill="WHITE" />
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" prefWidth="200.0" spacing="10.0" HBox.hgrow="ALWAYS">
+               <children>
+                  <ImageView fx:id="hideWindowButtonImageView" fitHeight="30.0" fitWidth="26.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@images/minimize.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+                  <ImageView fx:id="closeWindowButtonImageView" fitHeight="36.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true" styleClass="controlsBarButtons">
+                     <image>
+                        <Image url="@images/close.png" />
+                     </image>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </ImageView>
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+      <HBox alignment="CENTER" prefHeight="661.0" prefWidth="1000.0" VBox.vgrow="ALWAYS">
+         <children>
+            <AnchorPane prefHeight="650.0" prefWidth="584.0">
+               <children>
+                  <AnchorPane fx:id="logInAnchorPane" layoutX="74.0" layoutY="49.0" prefHeight="508.0" prefWidth="433.0" styleClass="logInVBox">
+                     <children>
+                        <Label fx:id="blockTitleLabel" layoutX="43.0" layoutY="26.0" text="Вход в аккаунт" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <Pane fx:id="logInPane" layoutY="97.0" prefHeight="292.0" prefWidth="433.0">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="75.0" prefWidth="433.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="loginField" alignment="CENTER" focusTraversable="false" prefHeight="41.0" prefWidth="296.0" promptText="Логин" styleClass="textField" />
+                                    <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/userTF.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutY="75.0" prefHeight="68.0" prefWidth="433.0" spacing="10.0">
+                                 <children>
+                                    <PasswordField fx:id="passwordField" alignment="CENTER" focusTraversable="false" prefHeight="41.0" prefWidth="296.0" promptText="Пароль" styleClass="textField" />
+                                    <ImageView fitHeight="43.0" fitWidth="41.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/password.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="continueButton" layoutX="45.0" layoutY="189.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="296.0" styleClass="buttons" text="Продолжить">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor></Button>
+                              <CheckBox fx:id="rememberMeCheckBox" layoutX="127.0" layoutY="143.0" mnemonicParsing="false" text="Запомнить меня" />
+                              <HBox alignment="CENTER" layoutY="252.0" prefHeight="40.0" prefWidth="404.0">
+                                 <children>
+                                    <Label fx:id="errorLabelInLogIn" text="Error has occurred" textFill="RED" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <HBox alignment="CENTER" layoutX="6.0" layoutY="477.0" prefHeight="17.0" prefWidth="422.0">
+                           <children>
+                              <Label fx:id="noAccountCreateInNowLabel" styleClass="labelButtons" text="Нет аккаунта? Создайте сейчас!" textFill="WHITE" />
+                           </children>
+                        </HBox>
+                        <Pane fx:id="registrationPane" layoutX="13.0" layoutY="81.0" prefHeight="368.0" prefWidth="394.0" visible="false">
+                           <children>
+                              <HBox alignment="CENTER" prefHeight="68.0" prefWidth="394.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="regLoginTF" alignment="CENTER" focusTraversable="false" prefHeight="42.0" prefWidth="294.0" promptText="Логин" styleClass="textField" />
+                                    <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/userTF.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutY="68.0" prefHeight="68.0" prefWidth="394.0" spacing="10.0">
+                                 <children>
+                                    <PasswordField fx:id="regPasswordTF" alignment="CENTER" focusTraversable="false" prefHeight="42.0" prefWidth="294.0" promptText="Пароль" styleClass="textField" />
+                                    <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/password.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="1.0" layoutY="136.0" prefHeight="68.0" prefWidth="394.0" spacing="10.0">
+                                 <children>
+                                    <TextField fx:id="regCityTF" alignment="CENTER" focusTraversable="false" prefHeight="42.0" prefWidth="294.0" promptText="Город" styleClass="textField" />
+                                    <ImageView fitHeight="42.0" fitWidth="45.0" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@images/city.png" />
+                                       </image>
+                                    </ImageView>
+                                 </children>
+                              </HBox>
+                              <Button fx:id="regContinueButton" layoutX="25.0" layoutY="225.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="287.0" styleClass="buttons" text="Продолжить" />
+                              <HBox alignment="CENTER" layoutX="-1.0" layoutY="283.0" prefHeight="17.0" prefWidth="330.0">
+                                 <children>
+                                    <Label fx:id="regGeneratePasswordAndLoginLabel" styleClass="labelButtons" text="Сгенерировать пароль и логин" textFill="#005eff" underline="true">
+                                       <cursor>
+                                          <Cursor fx:constant="HAND" />
+                                       </cursor>
+                                    </Label>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER" layoutX="1.0" layoutY="335.0" prefHeight="30.0" prefWidth="362.0">
+                                 <children>
+                                    <Label fx:id="errorLabelInRegistration" text="Error h occur" textFill="RED" visible="false" />
+                                 </children>
+                              </HBox>
+                           </children>
+                        </Pane>
+                        <Pane fx:id="additionPasswordPane" layoutY="97.0" prefHeight="217.0" prefWidth="411.0" visible="false">
+                           <children>
+                              <Label layoutX="43.0" text="Вход требует дополнительного пароля" textFill="WHITE" />
+                              <HBox alignment="CENTER" layoutY="37.0" prefHeight="75.0" prefWidth="411.0">
+                                 <children>
+                                    <PasswordField fx:id="addPasswordPF" alignment="CENTER" prefHeight="43.0" prefWidth="323.0" promptText="Пароль" styleClass="textField" />
+                                 </children>
+                              </HBox>
+                              <Button fx:id="nextButtonToEnterAddPassword" layoutX="43.0" layoutY="122.0" mnemonicParsing="false" prefHeight="40.0" prefWidth="323.0" styleClass="buttons" text="Далее" />
+                              <Label fx:id="getBackInAdditionalPassword" layoutX="183.0" layoutY="180.0" styleClass="labelButtons" text="Назад" textFill="#0066ff">
+                                 <cursor>
+                                    <Cursor fx:constant="HAND" />
+                                 </cursor>
+                              </Label>
+                           </children>
+                        </Pane>
+                     </children>
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </AnchorPane>
+                  <Label fx:id="developerLabel" layoutX="237.0" layoutY="597.0" text="𝓑𝔂 𝓓𝓪𝓻𝓴 𝓢𝓽𝓾𝓭𝓲𝓸" textFill="WHITE">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                  </Label>
+                  <Pane fx:id="licencePane" layoutX="47.0" layoutY="95.0" prefHeight="536.0" prefWidth="487.0" styleClass="logInVBox" visible="false">
+                     <children>
+                        <Label layoutX="27.0" layoutY="28.0" text="Лицензионное соглашение" textFill="WHITE">
+                           <font>
+                              <Font size="18.0" />
+                           </font>
+                        </Label>
+                        <ScrollPane fx:id="licenceTextScrollPane" fitToWidth="true" layoutX="27.0" layoutY="89.0" prefHeight="357.0" prefWidth="433.0">
+                           <content>
+                              <VBox prefHeight="741.0" prefWidth="431.0" style="-fx-background-color: rgb(31,31,31);">
+                                 <children>
+                                    <Label fx:id="licenceTextLabel" text="&#10;" textFill="WHITE" wrapText="true" />
+                                 </children>
+                              </VBox>
+                           </content>
+                        </ScrollPane>
+                        <HBox fx:id="licenceControlsHbox" alignment="CENTER" layoutX="30.0" layoutY="465.0" spacing="27.0">
+                           <children>
+                              <VBox spacing="10.0">
+                                 <children>
+                                    <RadioButton fx:id="imAgreeWithLicenceRadioButton" mnemonicParsing="false" text="Я соглашаюсь с условиями лицензии" />
+                                    <RadioButton fx:id="imNotAgreeWithLicenceRadioButton" mnemonicParsing="false" text="Я не соглашаюсь с условиями лицензии" />
+                                 </children>
+                              </VBox>
+                              <Button fx:id="continueButtonInLicence" mnemonicParsing="false" prefHeight="33.0" prefWidth="95.0" styleClass="buttons" text="Далее" />
+                           </children>
+                        </HBox>
+                        <VBox fx:id="licenceNotAgreeVBox" layoutX="27.0" layoutY="81.0" prefHeight="112.0" prefWidth="433.0" visible="false">
+                           <children>
+                              <Label text="Вы не имейте право пользоваться этим продуктом. Прочтите лицензионное соглашение повторно и согласитесь с его условиями&#10;" textFill="WHITE" wrapText="true" />
+                              <Button fx:id="backToLicenceButton" mnemonicParsing="false" prefHeight="31.0" prefWidth="169.0" styleClass="buttons" text="Вернуться к лицензии">
+                                 <VBox.margin>
+                                    <Insets top="20.0" />
+                                 </VBox.margin>
+                              </Button>
+                           </children>
+                        </VBox>
+                     </children>
+                  </Pane>
+                  <Pane fx:id="closeConfirmPane" layoutX="11.0" layoutY="231.0" prefHeight="200.0" prefWidth="562.0" style="-fx-background-color: #191919; -fx-background-radius: 13;" visible="false">
+                     <effect>
+                        <DropShadow />
+                     </effect>
+                     <children>
+                        <Label layoutX="92.0" layoutY="20.0" text="Вы действительно хотите выйти?" textFill="WHITE">
+                           <font>
+                              <Font size="20.0" />
+                           </font>
+                        </Label>
+                        <Button fx:id="continueButtonCloseConfirmPane" layoutX="23.0" layoutY="149.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="123.0" styleClass="buttons" text="Продолжить" />
+                        <Button fx:id="rejectButtonCloseConfirmPane" layoutX="418.0" layoutY="149.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="123.0" style="-fx-background-color: RED;" styleClass="buttons" text="Отмена" />
+                     </children>
+                  </Pane>
+               </children>
+            </AnchorPane>
+         </children>
+      </HBox>
+   </children>
+</VBox>

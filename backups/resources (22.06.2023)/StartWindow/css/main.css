@@ -1,0 +1,154 @@
+.mainVBox{
+	-fx-background-color: white;
+	-fx-text-fill: white;
+}
+
+.controlsBar{
+	-fx-background-color: rgb(12,23,39);
+}
+
+.controlsBarButtons: hover{
+	-fx-scale-x: 1.5;
+	-fx-scale-y: 1.5;
+}
+
+.logInVBox{
+	-fx-background-radius: 13;
+	-fx-background-color: rgb(31,31,31);
+	-fx-opacity: 0.89;
+}
+
+.textField{
+	-fx-background-color: white;
+	-fx-background-radius: 13px;
+	-fx-font-family: 'Arial Black';
+	-fx-border-radius: 13;
+	-fx-border-width: 2;
+}
+
+.textField: hover{
+	-fx-border-color: rgb(115,140,210);
+}
+
+.buttons{
+	-fx-background-color: rgb(79,82,178);
+	-fx-text-fill: white;
+	-fx-font-family: 'Arial Black';
+	-fx-background-radius: 13;
+	-fx-border-radius: 13;
+	-fx-border-width: 2;
+}
+
+.buttons: hover{
+	-fx-text-fill: rgb(115,140,210);
+	-fx-border-color: white;
+}
+
+.label{
+	-fx-font-family: 'Arial Black';
+}
+
+.labelButtons: hover{
+	-fx-opacity: 0.87;
+	-fx-underline: true;
+}
+
+.check-box {
+    selected-box-color: #141414;
+    box-color: white;
+    mark-color: white;
+    -fx-text-fill: white;
+    -fx-font-family: 'Arial Black';
+    -fx-cursor: hand;
+}
+
+.check-box:selected > .box {
+    -fx-background-color: white;
+}
+
+.check-box > .box {
+    -fx-background-color: #5b5fc7;
+}
+
+.check-box:selected > .box > .mark,
+.check-box:indeterminate  > .box > .mark {
+    -fx-background-color: #444791;
+}
+
+.check-box: hover{
+	-fx-underline: true;
+}
+
+.scroll-pane {
+    -fx-background-color: rgb(31,31,31);
+}
+
+.scroll-bar:vertical{
+    -fx-background-color:transparent;
+}
+
+.increment-button, .decrement-button {
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+}
+
+.scroll-bar:vertical .track{
+    -fx-background-color: transparent;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:vertical .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.scroll-bar:horizontal .track{
+    -fx-background-color: black;
+    -fx-border-color: transparent;
+    -fx-background-radius: 0em;
+}
+
+.scroll-bar:horizontal .thumb {
+    -fx-background-color: white;
+    -fx-background-radius: 5em;
+}
+
+.radio-button:hover{
+	-fx-underline: true;
+}
+
+.radio-button .radio {
+    -fx-border-width: 2px;
+    -fx-border-color: white;
+    -fx-background-color: rgb(79,82,178);
+
+    -fx-background-image: null;
+    -fx-border-radius: 15px;
+    -fx-padding: 4px;
+}
+.radio-button .radio:selected {
+    -fx-background-color: black;
+    -fx-background-image: null;
+    
+}
+.radio-button -radio:armed {
+    -fx-background-color: black;
+    -fx-background-image: null;
+}
+.radio-button -radio:determinate {
+    -fx-background-color: black;
+    -fx-background-image: null;
+}
+.radio-button -radio:indeterminate {
+    -fx-background-color: black;
+    -fx-background-image: null;
+}
+.radio-button .dot {
+    -fx-background-radius: 15px;
+}
+
+.radio-button{
+	-fx-font-family: 'Arial Black';
+	-fx-text-fill: white;
+}
